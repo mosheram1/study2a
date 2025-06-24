@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% block title %} Game Results {% endblock %}
+
+{% block content %}
+<h3></h3>
+
+{% if player.participant_role == 'Sender' %}
+    <p><strong>Sender's Outcome:</strong></p>
+
+    {% if group.sender_decision %}
+        <p>You chose to <strong>send 30 points</strong> to the Receiver.</p>
+        {% if group.receiver_decision %}
+            <p>The Receiver chose to <strong>return 15 points</strong>.</p>
+            <p>Your final payoff: <strong>$1.50</strong> (15 points)</p>
+        {% else %}
+            <p>The Receiver chose to <strong>keep all 30 points</strong>.</p>
+            <p>Your final payoff: <strong>$0.00</strong> (0 points)</p>
+        {% endif %}
+    {% else %}
+        <p>You chose to <strong>keep 10 points</strong>.</p>
+        <p>Your final payoff: <strong>$1.00</strong> (10 points)</p>
+
+        <hr>
+        <p><em>Receiver's planned response if you had sent 30 points:</em></p>
+        {% if group.receiver_decision %}
+            <p>The Receiver would have <strong>returned 15 points</strong>.</p>
+        {% else %}
+            <p>The Receiver would have <strong>kept all 30 points</strong>.</p>
+        {% endif %}
+    {% endif %}
+
+{% else %}
+    <p><strong>Receiver's Outcome:</strong></p>
+
+    {% if group.sender_decision %}
+        <p>The Sender chose to <strong>send 30 points</strong> to you.</p>
+        {% if group.receiver_decision %}
+            <p>You chose to <strong>return 15 points</strong>.</p>
+            <p>Your final payoff: <strong>$1.50</strong> (15 points)</p>
+        {% else %}
+            <p>You chose to <strong>keep all 30 points</strong>.</p>
+            <p>Your final payoff: <strong>$3.00</strong> (30 points)</p>
+        {% endif %}
+    {% else %}
+        <p>The Sender chose to <strong>keep 10 points</strong>.</p>
+        <p>You received <strong>$0.00</strong> (0 points)</p>
+    {% endif %}
+
+{% endif %}
+
+<br>
+{{ next_button }}
+{% endblock %}

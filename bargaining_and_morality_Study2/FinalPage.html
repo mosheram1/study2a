@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% block title %}Thank You{% endblock %}
+
+{% block content %}
+<div class="card mt-4">
+    <div class="card-body text-center">
+        <h3>Thank You for Participating!</h3>
+
+        <p>Here is a summary of your earnings:</p>
+        <table class="table table-bordered w-50 mx-auto">
+            <tr>
+                <th>Participation Fee</th>
+                <td>${{ participation_fee }}</td>
+            </tr>
+            <tr>
+                <th>Bonus from Trust Game (Stage 1)</th>
+                <td>${{ stage1_payoff }}</td>
+            </tr>
+            <tr>
+                <th>Bonus from Matching Task (Stage 2)</th>
+                <td>${{ stage2_payoff }}</td>
+            </tr>
+            <tr>
+                <th><strong>Total Payout</strong></th>
+                <td><strong>${{ total_payoff }}</strong></td>
+            </tr>
+        </table>
+
+        <p>You may now close this window.</p>
+    </div>
+</div>
+{% endblock %}

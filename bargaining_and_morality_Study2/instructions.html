@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% block content %}
+
+<div class="card bg-light m-3">
+    <div class="card-body">
+        <h4 class="card-title">Welcome to the Study</h4>
+
+        <p>
+            Thank you for participating in this research study. The study will take about <strong>15 minutes</strong>.
+            Your responses are completely anonymous.
+        </p>
+
+        <p>
+            You will receive a base payment of <strong>$2.50</strong>. Additional earnings depend on your decisions and those of your partner(s).
+        </p>
+
+        <p>The study has three parts:</p>
+        <ol>
+            <li><strong>Stage 1 – Trust Game:</strong> You will interact with another participant and make decisions that affect both of your earnings.</li>
+            <li><strong>Stage 2 – Reporting Task:</strong> You and your partner will complete a task where matching decisions can lead to a bonus.</li>
+            <li><strong>Final – Questionnaire:</strong> You will answer a few short (non-identifying) questions.</li>
+        </ol>
+
+        <p><strong>Important Notes:</strong></p>
+        <ul>
+            <li>Your earnings in Stage 1 are determined by the interaction between two roles: Sender and Receiver.</li>
+            <li>In Stage 2, the task is repeated for multiple rounds, but <strong>only the result from the final round determines your bonus</strong> for that stage.</li>
+        </ul>
+
+        <p>If you have any questions, you may contact: <strong>Moshe Ram</strong> – <a href="mailto:mosheram@gmail.com">mosheram@gmail.com</a></p>
+
+        <hr>
+
+        <h5>Before we begin, please answer the following:</h5>
+
+        <div class="form-group">{{ formfield player.Age_dec }}</div>
+        <div class="form-group">{{ formfield player.MTurk_ID }}</div>
+        <div class="form-group">{{ formfield player.Residence }}</div>
+        <div class="form-group">{{ formfield player.English }}</div>
+        <div class="form-group">{{ formfield player.Verification }}</div>
+
+        <br>
+        {{ next_button }}
+    </div>
+</div>
+
+{% endblock %}

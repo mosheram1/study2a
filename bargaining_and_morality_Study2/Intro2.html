@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% block title %} Stage 2: Letter & Number Task {% endblock %}
+
+{% block content %}
+    <p>Welcome to Stage 2.</p>
+
+    <p>In this task, you will follow these steps in each round:</p>
+    <ol>
+        <li>Mentally choose one letter from the set A–F (do not click anything yet).</li>
+        <li>You will then see a table where a random number (1–6) is assigned to each letter.</li>
+        <li>Find the number under the letter you mentally chose and report it.</li>
+        <li>Your partner will perform the same task independently.</li>
+    </ol>
+
+    <p><strong>Important:</strong> You and your partner will earn money <strong>only if both of you report the same number</strong>.</p>
+
+    <p><strong>Payment:</strong> The amount paid is based on the number you both reported — each of you will receive half of that number, in USD.</p>
+
+    <p>This task will repeat for more than one round. <strong>Only your outcome from the final round will determine your bonus for this stage.</strong></p>
+
+    <p>Click "Next" to begin the first round of this task.</p>
+
+    {{ next_button }}
+{% endblock %}

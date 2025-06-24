@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% block title %}Partner Choice{% endblock %}
+
+{% block content %}
+<h3>Partner Selection</h3>
+
+<p>
+    Would you like to continue working with the <strong>same partner</strong> in the next stage,
+    or would you prefer to be matched with a <strong>new partner</strong>?
+</p>
+
+{{ formfield player.wants_same_partner }}
+
+<p><em>Note: Your choice may or may not affect the matching in the next stage.</em></p>
+
+{{ next_button }}
+{% endblock %}

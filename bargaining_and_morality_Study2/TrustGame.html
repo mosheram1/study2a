@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% block content %}
+
+<h3>Stage 1: Trust Game</h3>
+
+{% if player.participant_role == 'Sender' %}
+    <p>You have been randomly assigned the role of the <strong>Sender</strong>.</p>
+
+    <p>You are given <strong>30 points</strong>. You now have to choose whether to:</p>
+    <ul>
+        <li><strong>Keep 10 points</strong> for yourself (safe option)</li>
+        <li><strong>Send all 30 points</strong> to the Receiver (risky option)</li>
+    </ul>
+
+    <p>If you choose to send the 30 points:</p>
+    <ul>
+        <li>The Receiver will then choose whether to <strong>send back 15 points</strong> to you or <strong>keep all 30 points</strong> for themselves.</li>
+        <li>Your payoff will depend on the Receiver’s choice.</li>
+    </ul>
+
+    <p>If you choose to keep the 10 points, the Receiver gets nothing, and the game ends.</p>
+
+   <p><strong> Every 10 points = $1.00 </strong></p>
+
+    {{ formfield group.sender_decision }}
+
+{% elif player.participant_role == 'Receiver' %}
+    <p>You have been randomly assigned the role of the <strong>Receiver</strong>.</p>
+
+    <p>This is a hypothetical decision stage. If the Sender chooses to send you the 30 points, your choice here will determine the outcome:</p>
+
+    <ul>
+        <li><strong>Trustworthy:</strong> Return 15 points to the Sender (you keep 15)</li>
+        <li><strong>Untrustworthy:</strong> Keep all 30 points for yourself (Sender gets nothing)</li>
+    </ul>
+
+    <p>If the Sender decides not to send the points, your decision will not be used, and you will receive nothing.</p>
+
+    <p><strong> Every 10 points = $1.00 </strong></p>
+
+    {{ formfield group.receiver_decision }}
+
+{% endif %}
+
+<br />
+{{ next_button }}
+
+{% endblock %}

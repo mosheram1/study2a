@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% block title %}Report Your Number{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <p>You are Player B (Second Mover). Please follow these steps:</p>
+        <ol>
+            <li>Look at the table below showing only the letters.</li>
+            <li>Mentally select one letter (A-F) and remember it.</li>
+            <li>Click the "I chose" button to reveal the numbers.</li>
+            <li>Report the number that appears under your chosen letter.</li>
+        </ol>
+        <div class="alert alert-info">
+    Player A reported: {{ player_a_report }}
+</div>
+
+        <button class="btn btn-primary" onclick="toggleTable()">I chose</button>
+
+        <table class="table table-bordered text-center mt-3">
+            <tr>
+                {% for letter, number in letter_number_mapping.items %}
+                    <th>{{ letter }}</th>
+                {% endfor %}
+            </tr>
+            <tr id="numberRow" style="display: none;">
+                {% for letter, number in letter_number_mapping.items %}
+                    <td>{{ number }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+
+        <script>
+            function toggleTable() {
+                document.getElementById('numberRow').style.display = 'table-row';
+            }
+        </script>
+
+        <div class="form-group mt-3">
+            {{ formfields }}
+        </div>
+    </div>
+</div>
+
+{{ next_button }}
+{% endblock %}

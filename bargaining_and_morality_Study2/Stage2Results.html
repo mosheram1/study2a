@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% block title %}Results{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5>Round {{ player.round_number }} Results</h5>
+
+        <p>Player A reported: {{ number_report_A }}</p>
+        <p>Player B reported: {{ number_report_B }}</p>
+
+        {% if is_matched %}
+            <div class="alert alert-success">
+                <strong>Congratulations!</strong> Both players reported the same number.
+                {% if player.round_number == 2 %}
+                    <p>Your earnings for this stage: {{ player_payoff }}</p>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning">
+                <strong>No earnings for this stage" </strong> The reported numbers did not match.
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{{ next_button }}
+{% endblock %}
